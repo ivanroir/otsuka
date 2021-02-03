@@ -19,7 +19,7 @@
       }
       #gameContainer {
         width: 100vw;
-        height: 100vh;
+        height: 80vh;
       }
       canvas {
         width: 100%;
@@ -36,8 +36,8 @@
 
       .logo {
           display: block;
-          max-width: 100%;
-          object-fit: contain;
+          width: 100%;
+          height: 100%;
       }
 
       .progress {
@@ -45,6 +45,8 @@
           border: 1px solid blue;
           width: 50vw;
           display: none;
+          position: absolute;
+          bottom: 50px;
       }
       .progress .full {
           margin: 2px;
@@ -57,8 +59,9 @@
         position: absolute;
         left: 0;
         top: 0;
+        bottom: 0;
         width: 100vw;
-        height: 100vh;
+        /*height: 80vh;*/
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -119,42 +122,44 @@
         }
       }
 
+      label {
+        color: #011b3f;
+      }
+
     </style>
   </head>
 
   <body>
+    <div class="wide-screen1" style="height: 10vh; background-color: #01122a;"></div>
     <div id="gameContainer"></div>
     <div id="loader">
       <img id="logo" class="logo" src="logo.png">
-      <div class="overlay">
-        <div style="color: white; font-size:10px;text-align: center;">Loading ... Please Wait ...</div>
-        <div class="spinner"></div>
+      <div class="spinner"></div>
       <div class="progress"><div class="full"></div></div>
-      </div>  
     </div>
+    <div class="wide-screen2" style="height: 10vh; background-color: #01122a;"></div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-body" style="background-color: lightblue;">
-            <div class="row">
+          <div class="modal-body" style="background-color: white; align-items: center; justify-content: center; display: flex;">
+            <div class="row" style="border: 50px solid #011b3f; padding: 50px"> 
               <div class="col-12 text-center mb-5 p-0">
-                <img class="img-responsive" src="https://otsuka-virtualbooth.tk/img/OtsukaLogo.png" style="width: 50%;" alt="OTSUKA LOGO"/>
+                <img class="img-responsive" src="img/OtsukaLogo.png" alt="OTSUKA LOGO"/>
               </div>
-              <div class="col-3"></div>
-              <div class="col-6">
+              <div class="col-12">
                 <div class="col-12">
                   <div class="form-group">
                     <div class="row">
                       <div class="col-2">
                         <label for="name">NAME</label>
                       </div>
-                      <div class="col-8">
+                      <div class="col-9">
                         <input type="text" class="form-control" id="name" required>
                       </div>
-                      <div class="col-2" style="text-align: end;">
-                        <label id="name_required" style="color: red;  display: none;">* required</label>
+                      <div class="col-1" style="text-align: end;">
+                        <label id="name_required" style="color: red;  display: none;">*</label>
                       </div>
                     </div>
                   </div>
@@ -163,13 +168,13 @@
                   <div class="form-group">
                     <div class="row">
                       <div class="col-2">
-                        <label for="clinic">HOSPITAL/CLINIC</label>
+                        <label for="clinic">HOSPITAL</label>
                       </div>
-                      <div class="col-8">
+                      <div class="col-9">
                         <input type="text" class="form-control" id="clinic" required>
                       </div>
-                      <div class="col-2" style="text-align: end;">
-                        <label id="clinic_required" style="color: red;  display: none;">* required</label>
+                      <div class="col-1" style="text-align: end;">
+                        <label id="clinic_required" style="color: red;  display: none;">*</label>
                       </div>
                     </div>
                   </div>
@@ -180,11 +185,11 @@
                       <div class="col-2">
                         <label for="specialist">SPECIALIST</label>
                       </div>
-                      <div class="col-8">
+                      <div class="col-9">
                         <input type="text" class="form-control" id="specialist" required>
                       </div>
-                      <div class="col-2" style="text-align: end;">
-                        <label id="specialist_required" style="color: red;  display: none;">* required</label>
+                      <div class="col-1" style="text-align: end;">
+                        <label id="specialist_required" style="color: red;  display: none;">*</label>
                       </div>
                     </div>
                   </div>
@@ -196,20 +201,19 @@
                       <div class="col-2">
                         <label for="email">EMAIL</label>
                       </div>
-                      <div class="col-8">
+                      <div class="col-9">
                         <input type="text" class="form-control" id="email" required>
                       </div>
-                      <div class="col-2" style="text-align: end;">
-                        <label id="email_required" style="color: red;  display: none;">* required</label>
+                      <div class="col-1" style="text-align: end;">
+                        <label id="email_required" style="color: red;  display: none;">*</label>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-3"></div>
               <div class="col-12 text-center">
                 <button type="button" id="submit" onclick="sendBackMessage()">
-                  <img src="https://otsuka-virtualbooth.tk/img/submit.png" style="width: 100%;" alt="SUBMIT BUTTON" />
+                  <img src="img/submit.png" style="width: 100%;" alt="SUBMIT BUTTON" />
                 </button>
               </div>
             </div>
@@ -224,7 +228,7 @@
           <div class="modal-body" style="background-color: #024ea2;">
             <div class="row">
               <div class="col-12 text-center mb-5 p-0">
-                <img class="img-responsive" src="https://otsuka-virtualbooth.tk/img/OtsukaLogo.png" style="width: 50%;" alt="OTSUKA LOGO"/>
+                <img class="img-responsive" src="img/OtsukaLogo.png" alt="OTSUKA LOGO"/>
               </div>
               <div class="col-2"></div>
               <div class="col-8">
@@ -242,7 +246,7 @@
               <div class="col-2"></div>
               <div class="col-12 text-center">
                 <button type="button" id="submit" onclick="sendAddress()">
-                  <img src="https://otsuka-virtualbooth.tk/img/submit.png" style="width: 100%;" alt="SUBMIT BUTTON" />
+                  <img src="img/submit.png" style="width: 100%;" alt="SUBMIT BUTTON" />
                 </button>
               </div>
             </div>
@@ -270,20 +274,20 @@
        
 
         if (!document.getElementById('name').validity.valid){
-          document.getElementById('firstname_required').style.display = "inline";
+          document.getElementById('name_required').style.display = "inline";
           fname = false;
         }
         else {
-          document.getElementById('firstname_required').style.display = "none";
+          document.getElementById('name_required').style.display = "none";
           fname = true;
         }
         
         if (!document.getElementById('specialist').validity.valid){
-          document.getElementById('lastname_required').style.display = "inline";
+          document.getElementById('specialist_required').style.display = "inline";
           specialistType = false;
         }
         else {
-          document.getElementById('lastname_required').style.display = "none";
+          document.getElementById('specialist_required').style.display = "none";
           specialistType = true;
         }
 
@@ -306,7 +310,7 @@
         }
 
         if (fname && specialistType && hospital && emailAdd) {
-          var data = firstName + "\t" + lastName + "\t" + clinic + "\t" + email;
+          var data = name + "\t" + specialist + "\t" + clinic + "\t" + email;
           gameInstance.SendMessage("Main Menu", "SendToUnity", data );
           $('#exampleModal').modal('hide');
         }
@@ -325,16 +329,25 @@
       return;
     }
     const loader = document.querySelector("#loader");
+    const wideScreen1 = document.querySelector(".wide-screen1");
+    const wideScreen2 = document.querySelector(".wide-screen2");
+    const gameContainer = document.querySelector("#gameContainer");
     if (!gameInstance.progress) {
       const progress = document.querySelector("#loader .progress");
       progress.style.display = "block";
       gameInstance.progress = progress.querySelector(".full");
       loader.querySelector(".spinner").style.display = "none";
+      wideScreen1.style.height="0vh";
+      wideScreen2.style.height="0vh";
+      gameContainer.style.height="100vh";
     }
     gameInstance.progress.style.transform = `scaleX(${progress})`;
     if (progress === 1 && !gameInstance.removeTimeout) {
       gameInstance.removeTimeout = setTimeout(function() {
           loader.style.display = "none";
+          wideScreen1.style.height="10vh";
+          wideScreen2.style.height="10vh";
+          gameContainer.style.height="80vh";
       }, 2000);
     }
   }
