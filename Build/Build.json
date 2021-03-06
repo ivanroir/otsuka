@@ -1,6 +1,6 @@
 {
 "companyName": "DefaultCompany",
-"productName": "UAPGame",
+"productName": "Otsuka",
 "productVersion": "1.0",
 "dataUrl": "Build.data.unityweb",
 "asmCodeUrl": "Build.asm.code.unityweb",
@@ -14,5 +14,5 @@
 "cacheControl": {"default": "must-revalidate"},
 "developmentBuild": false,
 "multithreading": false,
-"unityVersion": "2019.4.18f1"
+"unityVersion": "2019.4.21f1"
 }
