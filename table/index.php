@@ -69,6 +69,8 @@
                             <td scope="col">BFLUID</td>
                             <td scope="col">HINEX</td>
                             <td scope="col">MEPTIN</td>
+                            <td scope="col">PRODUCTS</td>
+                            <td scope="col">STUDIES</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,6 +97,8 @@
                                 $bfluid = ($row['bfluid']) ? "Y" : "N";
                                 $hinex = ($row['hinex']) ? "Y" : "N";
                                 $meptin = ($row['meptin']) ? "Y" : "N";
+                                $products = ($row['products']) ? "Y" : "N";
+                                $studies = ($row['studies']) ? "Y" : "N";
                                 echo"
                                     <tr>
                                         <th scope='row'>" . $ctr++ . "</th>
@@ -107,6 +111,8 @@
                                         <td data-tag=" . $bfluid . ">" . $bfluid . "</td>
                                         <td data-tag=" . $hinex . ">" . $hinex . "</td>
                                         <td data-tag=" . $meptin . ">" . $meptin . "</td>
+                                        <td data-tag=" . $products . ">" . $products . "</td>
+                                        <td data-tag=" . $studies . ">" . $studies . "</td>
                                     </tr>";
                             }
                         }
