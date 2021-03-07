@@ -62,17 +62,13 @@
                             <td scope="col">#</td>
                             <td scope="col">DATE</td>
                             <td scope="col">NAME</td>
-                            <td scope="col">SPECIALIST</td>
+                            <td scope="col">SPECIALTY</td>
                             <td scope="col">CLINIC</td>
                             <td scope="col">EMAIL ADDRESS</td>
                             <td scope="col">CONVENTION</td>
-                            <td scope="col">TIME REMAINING</td>
-                            <td scope="col">MUCOSTA</td>
-                            <td scope="col">GFO</td>
                             <td scope="col">BFLUID</td>
                             <td scope="col">HINEX</td>
-                            <td scope="col">NEOMUNE</td>
-                            <td scope="col">AMINOLEBAN</td>
+                            <td scope="col">MEPTIN</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -90,18 +86,15 @@
                             die("Connection failed: " . $conn->connect_error);
                         }
                         
-                        $sql = "SELECT * FROM registration";
+                        $sql = "SELECT * FROM registration WHERE convention = 'PSPGHAN'";
                         $result = $conn->query($sql);
                         $ctr = 1;
                         
                         if($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
-                                $mucosta = ($row['mucosta']) ? "Y" : "N";
-                                $gfo = ($row['gfo']) ? "Y" : "N";
                                 $bfluid = ($row['bfluid']) ? "Y" : "N";
                                 $hinex = ($row['hinex']) ? "Y" : "N";
-                                $neomune = ($row['neomune']) ? "Y" : "N";
-                                $aminoleban = ($row['aminoleban'] ) ? "Y" : "N";
+                                $meptin = ($row['meptin']) ? "Y" : "N";
                                 echo"
                                     <tr>
                                         <th scope='row'>" . $ctr++ . "</th>
@@ -111,13 +104,9 @@
                                         <td>" . $row['clinic'] . "</td>
                                         <td>" . $row['email'] . "</td>
                                         <td>" . $row['convention'] . "</td>
-                                        <td>" . $row['mucosta_word_search'] . "</td>
-                                        <td data-tag=" . $mucosta . ">" . $mucosta . "</td>
-                                        <td data-tag=" . $gfo . ">" . $gfo . "</td>
                                         <td data-tag=" . $bfluid . ">" . $bfluid . "</td>
                                         <td data-tag=" . $hinex . ">" . $hinex . "</td>
-                                        <td data-tag=" . $neomune . ">" . $neomune . "</td>
-                                        <td data-tag=" . $aminoleban . ">" . $aminoleban . "</td>
+                                        <td data-tag=" . $meptin . ">" . $meptin . "</td>
                                     </tr>";
                             }
                         }

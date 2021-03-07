@@ -13,8 +13,13 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sqlSelect = "SELECT * FROM registration WHERE fname = '" . $_POST["fname"] . "' AND specialist = '" . $_POST["specialist"] . "' AND clinic = '" . $_POST["clinic"] . "' AND email = '" . $_POST["email"] . "'";
+
+    $convention = "PSPGHAN";
+
+    $sqlSelect = "SELECT * FROM registration WHERE fname = '" . $_POST["fname"] . "' AND specialist = '" . $_POST["specialist"] . "' 
+    AND clinic = '" . $_POST["clinic"] . "' AND email = '" . $_POST["email"] . "' AND convention = '" . $convention . "'";
     $result = $conn->query($sqlSelect);
+    
 
     if($result->num_rows > 0) {
         echo "exist";
@@ -30,8 +35,8 @@
         echo "\t" . $mucosta . "\t" . $gfo . "\t" . $bfluid. "\t" . $hinex . "\t" . $neomune . "\t" . $aminoleban;
     } else {
         echo "creating user\t";
-        $sqlInsert = "INSERT INTO registration (fname, specialist, clinic, email, creation_date) 
-        VALUES ('" . $_POST["fname"] . "', '" . $_POST["specialist"] . "', '" . $_POST["clinic"] . "', '" . $_POST["email"] . "', '" . $_POST["creationDate"] . "')";
+        $sqlInsert = "INSERT INTO registration (fname, specialist, clinic, email, convention, creation_date) 
+        VALUES ('" . $_POST["fname"] . "', '" . $_POST["specialist"] . "', '" . $_POST["clinic"] . "', '" . $_POST["email"] . "', '" . $convention . "', '" . $_POST["creationDate"] . "')";
         if ($conn->query($sqlInsert) === TRUE) {
             echo "success";            
         } else {
