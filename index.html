@@ -9,8 +9,8 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
-      
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+
   <title>Otsuka</title>
   <style>
     html {
@@ -120,7 +120,7 @@
       padding: 0;
     }
 
-    .modal-content {
+    .modal-content-login {
       height: auto;
       min-height: 100%;
       border-radius: 0;
@@ -146,20 +146,20 @@
     }
 
     .modal-header {
-        padding: 1vw 1vw;
+      padding: 1vw 1vw;
     }
 
     .modal-header .btn-close {
-        padding: 1vw 1vw;
-        margin: -0.5rem -0.5rem -0.5rem auto;
+      padding: 1vw 1vw;
+      margin: -0.5rem -0.5rem -0.5rem auto;
     }
 
     .modal-body {
-        padding: 1vw;
+      padding: 1vw;
     }
 
     .btn-close {
-        opacity: 1;
+      opacity: 1;
     }
 
     .responsive-iframe {
@@ -173,18 +173,18 @@
     }
 
     .send-message {
-        position: absolute;
-        top: 72%;
-        left: 61%;
-        z-index: 4;
+      position: absolute;
+      top: 72%;
+      left: 61%;
+      z-index: 4;
     }
 
     .send-message-button {
-        width: 5vw;
-        height: 2vw;
-        background: rgba(0, 0, 0, 0);
-        opacity: 0;
-        z-index: 4;
+      width: 5vw;
+      height: 2vw;
+      background: rgba(0, 0, 0, 0);
+      opacity: 0;
+      z-index: 4;
     }
   </style>
 </head>
@@ -204,7 +204,7 @@
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content modal-content-login">
         <div class="modal-body" style="
               background-color: white;
               align-items: center;
@@ -250,7 +250,7 @@
                 <div class="form-group">
                   <div class="row">
                     <div class="col-2">
-                      <label for="specialist">SPECIALIST</label>
+                      <label for="specialist">SPECIALITY</label>
                     </div>
                     <div class="col-9">
                       <input type="text" class="form-control" id="specialist" required />
@@ -340,28 +340,27 @@
     </div>
   </div>
 
-  <div class="modal fade" id="messageModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="messageLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="messageLabel">SEND MESSAGE</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" name="message" rows="5"></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" id="send_message" class="btn btn-primary" data-bs-dismiss="modal">Send
-                        Message</button>
-                </div>
-            </div>
+  <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="messageLabel">SEND MESSAGE</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="5"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="send_message" class="btn btn-primary" data-bs-dismiss="modal">Send
+            Message</button>
+        </div>
+      </div>
     </div>
+  </div>
 
 
   <script>
@@ -425,8 +424,8 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
-  </script>
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
 </body>
 
 <script src="Build/UnityLoader.js"></script>
@@ -473,20 +472,20 @@
   });
 
   $('#send_message').click(function () {
-      $.ajax({
-          url: 'https://otsukaboothdb.ml/send_message.php',
-          type: 'POST',
-          data: {
-              fname: document.getElementById("name").value,
-              specialist: document.getElementById("specialist").value,
-              clinic: document.getElementById("clinic").value,
-              email: document.getElementById("email").value,
-              message: document.getElementById("message").value,
-          },
-          success: function (msg) {
-              document.getElementById("message").value = "";
-          }
-      });
+    $.ajax({
+      url: 'https://otsukaboothdb.ml/send_message.php',
+      type: 'POST',
+      data: {
+        fname: document.getElementById("name").value,
+        specialist: document.getElementById("specialist").value,
+        clinic: document.getElementById("clinic").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+      },
+      success: function (msg) {
+        document.getElementById("message").value = "";
+      }
+    });
   });
 </script>
 
