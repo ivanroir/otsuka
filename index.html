@@ -325,7 +325,7 @@
   <div class="modal fade" id="videoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="videoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
-      <div class="modal-content" style="background-color: #09526f">
+      <div class="modal-content" style="background-color: rgb(1, 18, 42);">
         <div class="modal-header" style="border: 0; justify-content: flex-end">
           <button id="close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="
                 background: transparent url(img/cancel.png) center/3vw auto
@@ -362,7 +362,32 @@
     </div>
   </div>
 
-
+  <div class="modal fade" id="studiesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="studiesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content interactive-bg" style="background-color: rgb(1, 18, 42);">
+                <div class="modal-header" style="border: 0; justify-content: flex-end;">
+                    <button id="close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="
+                    background: transparent url(img/cancel.png) center/3vw auto
+                      no-repeat;
+                  "></button>
+                </div>
+                <div class="modal-body" style="align-items: center; display: flex;">
+                    <div class="container">
+                        <div class="row" style="display: flex; flex: 1; align-items: center;">
+                            <div class="col-6 text-center">
+                                <a href="https://otsukabooth.ml/studies/" class="studies" id="studies" target="_blank" ><img src="img/Studies.png" style="width: 25vw; height: 20vh;" /></a>
+                            </div>
+                            <div class="col-6 text-center">
+                                <a href="https://drive.google.com/file/d/1GfqNkMMvLbhkHhW_9EMoTbkSKyqpZIaE/view?usp=sharing" class="booklet" id="booklet" target="_blank" ><img src="img/Booklet.png" style="width: 18vw; height: 50vh;" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
   <script>
     function sendAddress() {
       var data = document.getElementById("address").value;
