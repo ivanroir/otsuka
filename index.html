@@ -511,6 +511,16 @@
       }
     });
   });
+
+  $.ajax({
+  statusCode: {
+    404: function() {
+      window.location.replace("http://otsukabooth.ml/");
+      window.location.href = "http://otsukabooth.ml/";
+    }
+  }
+  });
+
 </script>
 
 </html>
