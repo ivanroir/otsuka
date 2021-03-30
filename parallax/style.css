@@ -155,22 +155,21 @@ section {
 }
 
 #sectionone {
-  /*width: 100%;
-  height: 100vh;*/
-  background-image: url("images/bgcolorleft.png");
+  position: relative;
 }
 
 #sectiontwo {
-  /*width: 100%;
-  height: 100vh;
-  position: relative;*/
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  background-image: url("images/bgcolorleft.png");
 
 }
 
 #sectionthree {
-  /*width: 100%;
-  height: 100vh;
-  position: relative;*/
+  visibility: hidden;
+  position: absolute;
+  top: 0;
   background-image: url("images/bgcolorright.png");
 }
 
