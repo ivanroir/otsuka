@@ -44,9 +44,13 @@ section {
   overflow: hidden;
 }
 
+.bg {
+  left: -30px !important;
+}
+
 .bg img {
-  width: 110vw;
-  height: 110vh;
+  width: 105vw;
+  height: 80vh;
   filter: brightness(0.6);
 }
 
@@ -96,13 +100,13 @@ section {
 }
 
 .booth {
-  left: -75px !important;
+  left: -45px !important;
   top: -40px !important;
 }
 
 .booth img {
-  width: 110vw;
-  height: 110vh;
+  width: 105vw;
+  height: 90vh;
   z-index: 2;
   left: -20px;
   top: 20vh !important;
@@ -151,7 +155,7 @@ section {
 
 .screen {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
 }
 
 #sectionone {
@@ -161,16 +165,21 @@ section {
 #sectiontwo {
   visibility: hidden;
   position: absolute;
-  top: 0;
-  background-image: url("images/bgcolorleft.png");
-
+  top: 10vh;
+  background-image: url("images/bgleft.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #sectionthree {
   visibility: hidden;
   position: absolute;
-  top: 0;
-  background-image: url("images/bgcolorright.png");
+  top: 10vh;
+  background-image: url("images/bgright.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .rockbg1 {
