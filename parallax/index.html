@@ -34,7 +34,7 @@
     }
 
     .video-img {
-      width: 17vw;
+      width: 100%;
     }
 
     p {
@@ -59,6 +59,44 @@
       height: 10vh;
     }
 
+    .swipeLeft {
+      position: absolute;
+      top: -11.4%;
+      left: 0%;
+      z-index: 3;
+      padding-left: 0.6%;
+      width: 10.9vw;
+      height: 12.8vh;
+      background-color: blue;
+      opacity: 0;
+    }
+
+    .swipeRight {
+      position: absolute;
+      top: -11.4%;
+      right: 0;
+      z-index: 3;
+      padding-left: 0.6%;
+      width: 10.9vw;
+      height: 12.8vh;
+      background-color: blue;
+      opacity: 0;
+    }
+
+    .btn-transparent {
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+    }
+
+    .responsive-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 
@@ -76,15 +114,19 @@
           <div class="gifmation">
             <img src="images/middle.gif" alt="" class="gif " />
           </div>
-          <div style="position: absolute; bottom: -20%; transform: translate(12%, -50%);">
-            <div class="row" style="width: 90vw; height: 20vh;">
-              <div class="col-6 text-start">
-                <h2 style="color: white;"><< Swipe Left</h2>
-              </div>
-              <div class="col-6 text-end">
-                <h2 style="color: white;">Swipe Right >></h2>
-              </div>
-            </div>
+
+        </div>
+      </div>
+      <div style="position: absolute; bottom: -20%; transform: translate(7%, -25%);">
+        <div class="row" style="width: 90vw; height: 20vh;">
+          <div class="col-6 text-start">
+            <button id="swipeLeft" class="swipeLeft" onclick="ScreenSwipe('Left')"></button>
+            <h2 style="color: white;">
+              << Swipe Left</h2>
+          </div>
+          <div class="col-6 text-end">
+            <button id="swipeRight" class="swipeRight" onclick="ScreenSwipe('Right')"></button>
+            <h2 style="color: white;">Swipe Right >></h2>
           </div>
         </div>
       </div>
@@ -101,7 +143,10 @@
               <div class="col-12">
                 <div class="row">
                   <div class="col-12">
-                    <img class="btn-img" src="images/SendMessage.png" />
+                    <button class="btn-transparent" id="send_message" data-bs-toggle="modal"
+                      data-bs-target="#messageModal">
+                      <img class="btn-img" src="images/SendMessage.png" />
+                    </button>
                   </div>
                   <div class="col-12">
                     <p>Ask any inquiries about the product/s or the company
@@ -112,7 +157,9 @@
               <div class="col-12">
                 <div class="row">
                   <div class="col-12">
-                    <img class="btn-img" src="images/Product.png" />
+                    <button class="btn-transparent" id="product" data-bs-toggle="modal" data-bs-target="#productsModal">
+                      <img class="btn-img" src="images/Product.png" />
+                    </button>
                   </div>
                   <div class="col-12">
                     <p>Click this button to view the product information or detailer.</p>
@@ -122,7 +169,9 @@
               <div class="col-12">
                 <div class="row">
                   <div class="col-12">
-                    <img class="btn-img" src="images/Studies.png" />
+                    <button class="btn-transparent" id="studies" data-bs-toggle="modal" data-bs-target="#studiesModal">
+                      <img class="btn-img" src="images/Studies.png" />
+                    </button>
                   </div>
                   <div class="col-12">
                     <p>Click this button to view the product studies</p>
@@ -142,7 +191,13 @@
                       malnutrition due to inadequate oral intake, and before and after surgery.</p>
                   </div>
                   <div class="col-6">
-                    <img class="video-img" src="images/bfluid.png" />
+                    <button class="btn-transparent"
+                      onclick="ShowVideo('https://player.vimeo.com/video/520341875?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
+                      <iframe
+                        src="https://player.vimeo.com/video/520341875?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen autoplay></iframe>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -155,7 +210,13 @@
                       supplement.</p>
                   </div>
                   <div class="col-6">
-                    <img class="video-img" src="images/hinex.png" />
+                    <button class="btn-transparent"
+                      onclick="ShowVideo('https://player.vimeo.com/video/520341969?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
+                      <iframe
+                        src="https://player.vimeo.com/video/520341969?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen autoplay></iframe>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -168,11 +229,25 @@
                       and pulmonary emphysema. </p>
                   </div>
                   <div class="col-6">
-                    <img class="video-img" src="images/meptin.png" />
+                    <button class="btn-transparent"
+                      onclick="ShowVideo('https://player.vimeo.com/video/520341587?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
+                      <iframe
+                        src="https://player.vimeo.com/video/520341587?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen autoplay></iframe>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div style="position: absolute; bottom: -20%; transform: translate(10%, -25%);">
+        <div class="row" style="width: 90vw; height: 20vh;">
+          <div class="col-12 text-end">
+            <button id="swipeRight" class="swipeRight" onclick="ScreenSwipe('Right')"></button>
+            <h2 style="color: white;">Swipe Right >></h2>
           </div>
         </div>
       </div>
@@ -189,7 +264,13 @@
               <div class="col-12">
                 <div class="row">
                   <div class="col-6">
-                    <img class="video-img" src="images/mucosta.png" />
+                    <button class="btn-transparent"
+                      onclick="ShowVideo('https://player.vimeo.com/video/521911187?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
+                      <iframe
+                        src="https://player.vimeo.com/video/521911187?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen autoplay></iframe>
+                    </button>
                   </div>
                   <div class="col-6">
                     <p>REBAMIPIDE MUCOSTA <br />
@@ -204,7 +285,13 @@
               <div class="col-12">
                 <div class="row">
                   <div class="col-6">
-                    <img class="video-img" src="images/aminoleban.png" />
+                    <button class="btn-transparent"
+                      onclick="ShowVideo('https://player.vimeo.com/video/521910633?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
+                      <iframe
+                        src="https://player.vimeo.com/video/521910633?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen autoplay></iframe>
+                    </button>
                   </div>
                   <div class="col-6">
                     <p>AMINOLEBAN ORAL <br />
@@ -219,7 +306,13 @@
               <div class="col-12">
                 <div class="row">
                   <div class="col-6">
-                    <img class="video-img" src="images/neomune.png" />
+                    <button class="btn-transparent"
+                      onclick="ShowVideo('https://player.vimeo.com/video/521911637?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
+                      <iframe
+                        src="https://player.vimeo.com/video/521911637?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen autoplay></iframe>
+                    </button>
                   </div>
                   <div class="col-6">
                     <p>NEO-MUNE
@@ -237,7 +330,10 @@
               <div class="col-12">
                 <div class="row">
                   <div class="col-12">
-                    <img class="btn-img" src="images/LetsTalk.png" />
+                    <a href="https://zoom.us/j/92970291312?pwd=MzZtWDA1Z3F1amZISFBnRTdSeWl6Zz09" class="letstalk"
+                      id="letstalk" target="_blank">
+                      <img class="btn-img" src="images/LetsTalk.png" />
+                    </a>
                   </div>
                   <div class="col-12">
                     <p>Interact with one of the OTSUKA’s representative thru Zoom meeting. Click this button to enter
@@ -248,7 +344,10 @@
               <div class="col-12">
                 <div class="row">
                   <div class="col-12">
-                    <img class="btn-img" src="images/FAQs.png" />
+                    <a href="https://drive.google.com/file/d/1DFyvh_lyPewc613M8Nlrnk-QF-4MlYPk/view?usp=sharing"
+                      class="faq" id="faq" target="_blank">
+                      <img class="btn-img" src="images/FAQs.png" />
+                    </a>
                   </div>
                   <div class="col-12">
                     <p>Frequently asked questions. Click here to read all the articles regarding FAQs.</p>
@@ -258,7 +357,10 @@
               <div class="col-12">
                 <div class="row">
                   <div class="col-12">
-                    <img class="btn-img" src="images/Game.png" />
+                    <a href="https://drive.google.com/file/d/1DFyvh_lyPewc613M8Nlrnk-QF-4MlYPk/view?usp=sharing"
+                      class="game" id="game" target="_blank">
+                      <img class="btn-img" src="images/Game.png" />
+                    </a>
                   </div>
                   <div class="col-12">
                     <p>An ice-breaker interactive game brought to you by Otsuka. Click here to enter the game.</p>
@@ -269,6 +371,15 @@
           </div>
         </div>
       </div>
+      <div style="position: absolute; bottom: -20%; transform: translate(3%, -25%);">
+        <div class="row" style="width: 90vw; height: 20vh;">
+          <div class="col-12 text-start">
+            <button id="swipeLeft" class="swipeLeft" onclick="ScreenSwipe('Left')"></button>
+            <h2 style="color: white;">
+              << Swipe Left</h2>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
   <div class="widescreen" style="height: 10vh; background-image: url('images/bgcolorleft.png');"></div>
@@ -276,7 +387,7 @@
 
   <!-- Modal -->
   <div class="modal fade" id="loginModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content modal-content-login">
         <div class="modal-body" style="
@@ -362,6 +473,97 @@
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="messageLabel">SEND MESSAGE</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="5"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="send_message" class="btn btn-primary" data-bs-dismiss="modal">Send
+            Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="studiesModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="studiesModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content interactive-bg" style="background-color: rgb(1, 18, 42);">
+        <div class="modal-header" style="border: 0; justify-content: flex-end;">
+          <button id="close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="
+                  background: transparent url(images/cancel.png) center/3vw auto
+                    no-repeat;
+                "></button>
+        </div>
+        <div class="modal-body" style="align-items: center; display: flex;">
+          <div class="container">
+            <div class="row" style="display: flex; flex: 1; align-items: center;">
+              <div class="col-4 text-center">
+                <a href="https://otsukabooth.ml/studies/" class="studies" id="studies" target="_blank"><img
+                    src="images/Studies.png" style="width: 23.7vw;; height: 20vh;" /></a>
+              </div>
+              <div class="col-4 text-center">
+                <a href="https://drive.google.com/file/d/1GfqNkMMvLbhkHhW_9EMoTbkSKyqpZIaE/view?usp=sharing"
+                  class="booklet" id="booklet" target="_blank"><img src="images/Booklet.png"
+                    style="width: 18vw; height: 50vh;" /></a>
+              </div>
+              <div class="col-4 text-center">
+                <a href="https://drive.google.com/file/d/135tcr0I9yt602EvHfRfGuqgqTcdoRMgW/view?usp=sharing"
+                  class="diet" id="diet" target="_blank"><img src="images/Diet.png"
+                    style="width: 18vw; height: 50vh;" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="productsModal" data-bs-backdrop="static" tabindex="-1"
+    aria-labelledby="productsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content interactive-bg" style="background-color: rgb(1, 18, 42);">
+        <div class="modal-header" style="border: 0; justify-content: flex-end;">
+          <button id="close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="
+                  background: transparent url(images/cancel.png) center/3vw auto
+                    no-repeat;
+                "></button>
+        </div>
+        <div class="modal-body" style="align-items: center; display: flex;">
+          <img src="images/Products.jpg" style="width: 100vw;" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="videoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content" style="background-color: rgb(1, 18, 42);">
+        <div class="modal-header" style="border: 0; justify-content: flex-end">
+          <button id="close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="
+                background: transparent url(images/cancel.png) center/3vw auto
+                  no-repeat;
+              "></button>
+        </div>
+        <div class="modal-body">
+          <iframe id="iframe-video" class="responsive-iframe" frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Modal -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
@@ -373,7 +575,7 @@
     crossorigin="anonymous"></script>
 
   <script>
-    var screen = 0, scroll_wheel = 0, go= 0, login = 0;
+    var screen = 0, scroll_wheel = 0, go = 0, login = 0;
 
     $(window).on("load", function () {
       $("#loginModal").modal("show");
@@ -397,60 +599,101 @@
         document.getElementById(element).addEventListener('animationend', handleAnimationEnd, { once: true });
       });
 
-    window.addEventListener('wheel', function (event) {
-      if ((event.deltaY < 0 && scroll_wheel == 0) && login == 1) {
-        console.log('scrolling up');
+    function LeftScreenIn() {
+      go = 0;
+      animateCSS('sectiontwo', 'slideInLeft');
+      animateCSS('sectionone', 'slideOutRight');
+      document.getElementsByClassName('widescreen')[0].style.backgroundImage = "url('images/bgcolorleft.png')";
+      document.getElementsByClassName('widescreen')[1].style.backgroundImage = "url('images/bgcolorleft.png')";
+      document.getElementById('sectiontwo').style.visibility = "visible";
+      document.getElementById('sectiontwo').addEventListener('animationend', () => {
+        scroll_wheel = 0;
+        go = 1;
+      });
+      screen = 1;
+    }
+
+    function LeftScreenOut() {
+      go = 0;
+      animateCSS('sectionthree', 'slideOutRight');
+      animateCSS('sectionone', 'slideInLeft');
+      document.getElementById('sectionthree').addEventListener('animationend', () => {
+        document.getElementById('sectionthree').style.visibility = "hidden";
+        go = 0;
+      });
+      screen = 0;
+    }
+
+    function RightScreenIn() {
+      go = 0;
+      animateCSS('sectionthree', 'slideInRight');
+      animateCSS('sectionone', 'slideOutLeft');
+      document.getElementsByClassName('widescreen')[0].style.backgroundImage = "url('images/bgcolorright.png')";
+      document.getElementsByClassName('widescreen')[1].style.backgroundImage = "url('images/bgcolorright.png')";
+      document.getElementById('sectionthree').style.visibility = "visible";
+      document.getElementById('sectionthree').addEventListener('animationend', () => {
+        scroll_wheel = 0;
+        go = 1;
+      });
+      screen = 2;
+    }
+
+    function RightScreenOut() {
+      go = 0;
+      animateCSS('sectiontwo', 'slideOutLeft');
+      animateCSS('sectionone', 'slideInRight');
+      document.getElementById('sectiontwo').addEventListener('animationend', () => {
+        document.getElementById('sectiontwo').style.visibility = "hidden";
+        go = 0;
+      });
+      screen = 0;
+    }
+
+    function ScreenSwipe(event) {
+      if ((event == "Left" && scroll_wheel == 0) && login == 1) {
         scroll_wheel = 1;
         if (screen == 0) {
-          go = 0;
-          animateCSS('sectiontwo', 'slideInLeft');
-          animateCSS('sectionone', 'slideOutRight');
-          document.getElementsByClassName('widescreen')[0].style.backgroundImage = "url('images/bgcolorleft.png')";
-          document.getElementsByClassName('widescreen')[1].style.backgroundImage = "url('images/bgcolorleft.png')";
-          document.getElementById('sectiontwo').style.visibility = "visible";
-          document.getElementById('sectiontwo').addEventListener('animationend', () => {
-            scroll_wheel = 0;
-            go = 1;
-          });
-          screen = 1;
+          LeftScreenIn();
         }
         else if (screen == 2) {
-          go = 0;
-          animateCSS('sectionthree', 'slideOutRight');
-          animateCSS('sectionone', 'slideInLeft');
-          document.getElementById('sectionthree').addEventListener('animationend', () => {
-            document.getElementById('sectionthree').style.visibility = "hidden";
-            go = 0;
-          });
-          screen = 0;
+          LeftScreenOut();
+        }
+
+      }
+      else if ((event == "Right" && scroll_wheel == 0) && login == 1) {
+        scroll_wheel = 1;
+        if (screen == 0) {
+          RightScreenIn();
+        }
+        else if (screen == 1) {
+          RightScreenOut();
+        }
+      }
+      else {
+        if (go == 1) {
+          scroll_wheel = 0;
+          go == 0;
+        }
+      }
+    }
+    window.addEventListener('wheel', function (event) {
+      if ((event.deltaY < 0 && scroll_wheel == 0) && login == 1) {
+        scroll_wheel = 1;
+        if (screen == 0) {
+          LeftScreenIn();
+        }
+        else if (screen == 2) {
+          LeftScreenOut();
         }
 
       }
       else if ((event.deltaY > 0 && scroll_wheel == 0) && login == 1) {
-        console.log('scrolling down');
         scroll_wheel = 1;
         if (screen == 0) {
-          go = 0;
-          animateCSS('sectionthree', 'slideInRight');
-          animateCSS('sectionone', 'slideOutLeft');
-          document.getElementsByClassName('widescreen')[0].style.backgroundImage = "url('images/bgcolorright.png')";
-          document.getElementsByClassName('widescreen')[1].style.backgroundImage = "url('images/bgcolorright.png')";
-          document.getElementById('sectionthree').style.visibility = "visible";
-          document.getElementById('sectionthree').addEventListener('animationend', () => {
-            scroll_wheel = 0;
-            go = 1;
-          });
-          screen = 2;
+          RightScreenIn();
         }
         else if (screen == 1) {
-          go = 0;
-          animateCSS('sectiontwo', 'slideOutLeft');
-          animateCSS('sectionone', 'slideInRight');
-          document.getElementById('sectiontwo').addEventListener('animationend', () => {
-            document.getElementById('sectiontwo').style.visibility = "hidden";
-            go = 0;
-          });
-          screen = 0;
+          RightScreenOut();
         }
       }
       else {
@@ -518,14 +761,39 @@
             email: document.getElementById("email").value,
           },
           success: function (msg) {
-              login = 1;
-              $("#loginModal").modal("hide");
+            login = 1;
+            $("#loginModal").modal("hide");
           },
         });
         ///////// IF LOGIN FAILED DONT CLOSE
 
       }
     }
+
+    function ShowVideo(link) {
+      $('#videoModal').modal('show');
+      document.getElementById("iframe-video").src = link;
+    }
+
+    $("#close").click(function () {
+      $("iframe").attr("src", $("iframe").attr("src"));
+    });
+
+    $('#send_message').click(function () {
+      $.ajax({
+        url: 'https://otsukaboothdb.ml/send_message.php',
+        type: 'POST',
+        data: {
+          fname: document.getElementById("name").value,
+          specialist: document.getElementById("specialist").value,
+          email: document.getElementById("email").value,
+          message: document.getElementById("message").value,
+        },
+        success: function (msg) {
+          document.getElementById("message").value = "";
+        }
+      });
+    });
 
   </script>
 
