@@ -153,7 +153,10 @@
 
 <body>
   <div class="widescreen" style="height: 10vh; background-image: url('images/bgcolorleft.png');"></div>
-  <div>
+  <div id="logo" style="display: inline;">
+    <img src="images/logo.png" style="width: 100vw; height: 80vh;" />
+  </div>
+  <div id="contents" style="display: none;">
     <section id="sectionone" class="screen animate__slower">
       <div id="scene">
         <div data-depth="0.1" class="bg">
@@ -818,6 +821,8 @@
           success: function (msg) {
             login = 1;
             $("#loginModal").modal("hide");
+            document.getElementById("logo").style.display = "none";
+            document.getElementById("contents").style.display = "inline";
           },
         });
         ///////// IF LOGIN FAILED DONT CLOSE
