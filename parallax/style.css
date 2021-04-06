@@ -46,11 +46,12 @@ section {
 
 .bg {
   left: -30px !important;
+  top: -163px !important;
 }
 
 .bg img {
   width: 105vw;
-  height: 80vh;
+  height: 115vh;
   filter: brightness(0.6);
 }
 
@@ -169,7 +170,7 @@ section {
   background-image: url("images/bgleft.png");
   background-position: left;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 123vw 118vh;
 }
 
 #sectionthree {
@@ -179,7 +180,7 @@ section {
   background-image: url("images/bgright.png");
   background-position: right;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 123vw 118vh;
 }
 
 .rockbg1 {

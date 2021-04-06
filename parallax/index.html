@@ -13,6 +13,10 @@
     integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <style>
+    .container-div {
+      padding: 0 3%;
+    }
+
     .gifmation {
       position: absolute;
       top: 27%;
@@ -25,8 +29,14 @@
       height: 24.5vh !important;
     }
 
+    a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+
     p {
       color: white;
+      font-size: .75vw;
     }
 
     .btn-img {
@@ -34,11 +44,8 @@
     }
 
     .video-img {
-      width: 100%;
-    }
-
-    p {
-      font-size: .83vw;
+      width: 13.7vw;
+      height: 16.1vh;
     }
 
     .modal-dialog {
@@ -110,338 +117,379 @@
     .btn-bfluid {
       position: absolute;
       top: 0;
-      right: 10.2%;
       z-index: 3;
     }
 
     .btn-hinex {
       position: absolute;
       top: 0;
-      right: 10.2%;
       z-index: 3;
     }
 
     .btn-meptin {
       position: absolute;
       top: 0;
-      right: 10.2%;
       z-index: 3;
     }
 
     .btn-mucosta {
       position: absolute;
       top: 0;
-      left: 10.2%;
       z-index: 3;
     }
 
     .btn-aminoleban {
       position: absolute;
       top: 0;
-      left: 10.2%;
       z-index: 3;
     }
 
     .btn-neomune {
       position: absolute;
       top: 0;
-      left: 10.2%;
       z-index: 3;
+    }
+
+    /** 
+         * iPad with portrait orientation.
+         */
+    @media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+      .foo {
+        height: 1024px;
+      }
+    }
+
+    /** 
+         * iPad with landscape orientation.
+         */
+    @media all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+      .foo {
+        height: 768px;
+      }
+    }
+
+    /**
+         * iPhone 5
+         * You can also target devices with aspect ratio.
+         */
+    @media screen and (device-aspect-ratio: 40/71) {
+      .foo {
+        height: 500px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="widescreen" style="height: 10vh; background-image: url('images/bgcolorleft.png');"></div>
-  <div id="logo" style="display: inline;">
-    <img src="images/logo.png" style="width: 100vw; height: 80vh;" />
+  <audio id="bgm" autoplay loop>
+    <source src="sound/bg.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div id="portrait" style="display: none; height: 100vh; width: 100vw; text-align: center; font-size: 5vw;">
+    Please Use Landscape
   </div>
-  <div id="contents" style="display: none;">
-    <section id="sectionone" class="screen animate__slower">
-      <div id="scene">
-        <div data-depth="0.1" class="bg">
-          <img src="images/bg1.png" alt="" />
-        </div>
-        <div data-depth="0.4" class="booth">
-          <img src="images/booth.png" alt="" />
-          <div class="gifmation">
-            <img src="images/middle.gif" alt="" class="gif " />
+  <div id="landscape" style="display: block;">
+    <div class="widescreen" style="height: 10vh; background-image: url('images/bgcolorleft.png');"></div>
+    <div id="logo" style="display: inline;">
+      <img src="images/logo.png" style="width: 100vw; height: 80vh;" />
+    </div>
+    <div id="contents" style="display: none;">
+      <section id="sectionone" class="screen animate__slower">
+        <div id="scene">
+          <div data-depth="0.1" class="bg">
+            <img src="images/bg1.png" alt="" />
           </div>
+          <div data-depth="0.4" class="booth">
+            <img src="images/booth.png" alt="" />
+            <div class="gifmation">
+              <img src="images/middle.gif" alt="" class="gif " />
+            </div>
 
-        </div>
-      </div>
-      <div style="position: absolute; bottom: -20%; transform: translate(7%, -25%);">
-        <div class="row" style="width: 90vw; height: 20vh;">
-          <div class="col-6 text-start">
-            <button id="swipeLeft" class="swipeLeft" onclick="ScreenSwipe('Left')"></button>
-            <h2 style="color: white;">
-              << Swipe Left</h2>
-          </div>
-          <div class="col-6 text-end">
-            <button id="swipeRight" class="swipeRight" onclick="ScreenSwipe('Right')"></button>
-            <h2 style="color: white;">Swipe Right >></h2>
           </div>
         </div>
-      </div>
-    </section>
+        <div style="position: absolute; bottom: -20%; transform: translate(7%, -25%);">
+          <div class="row" style="width: 90vw; height: 20vh;">
+            <div class="col-6 text-start">
+              <a id="" class="" onclick="ScreenSwipe('Left')">
+                <p style="color: white; font-size: 2vw;">
+                  << Click to view Left</p>
+              </a>
+            </div>
+            <div class="col-6 text-end">
+              <a id="" class="" onclick="ScreenSwipe('Right')">
+                <p style="color: white; font-size: 2vw;">Click to view Right >></p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <section id="sectiontwo" class="screen animate__slower">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-end">
-            <p style="font-size: 1.3vw;">VIDEO</p>
-          </div>
-          <div class="col-6">
-            <div class="row" style="height: 80vh;">
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-12">
-                    <button class="btn-transparent" id="send_message" data-bs-toggle="modal"
-                      data-bs-target="#messageModal">
-                      <img class="btn-img" src="images/SendMessage.png" />
-                    </button>
-                  </div>
-                  <div class="col-12">
-                    <p>Ask any inquiries about the product/s or the company
-                      by sending message. Click this button to send message..</p>
+      <section id="sectiontwo" class="screen animate__slower">
+        <div class="container-div">
+          <div class="row">
+            <div class="col-9 text-end" style="padding-right: 7%;">
+              <p style="font-size: 1.3vw;">VIDEO</p>
+            </div>
+            <div class="col-3"></div>
+            <div class="col-3">
+              <div class="row" style="height: 80vh;">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-12">
+                      <button class="btn-transparent p-0" id="send_message" data-bs-toggle="modal"
+                        data-bs-target="#messageModal">
+                        <img class="btn-img" src="images/SendMessage.png" />
+                      </button>
+                    </div>
+                    <div class="col-12">
+                      <p>Ask any inquiries about the product/s or the company
+                        by sending message.<br />Click this button to send message..</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-12">
-                    <button class="btn-transparent" id="product" data-bs-toggle="modal" data-bs-target="#productsModal">
-                      <img class="btn-img" src="images/Product.png" />
-                    </button>
-                  </div>
-                  <div class="col-12">
-                    <p>Click this button to view the product information or detailer.</p>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-12">
+                      <button class="btn-transparent p-0" id="product" data-bs-toggle="modal"
+                        data-bs-target="#productsModal">
+                        <img class="btn-img" src="images/Product.png" />
+                      </button>
+                    </div>
+                    <div class="col-12">
+                      <p>Click this button to view the product information or detailer.</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-12">
-                    <button class="btn-transparent" id="studies" data-bs-toggle="modal" data-bs-target="#studiesModal">
-                      <img class="btn-img" src="images/Studies.png" />
-                    </button>
-                  </div>
-                  <div class="col-12">
-                    <p>Click this button to view the product studies</p>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-12">
+                      <button class="btn-transparent p-0" id="studies" data-bs-toggle="modal"
+                        data-bs-target="#studiesModal">
+                        <img class="btn-img" src="images/Studies.png" />
+                      </button>
+                    </div>
+                    <div class="col-12">
+                      <p>Click this button to view the product studies</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-6">
-            <div class="row" style="height: 80vh;">
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-6">
-                    <p>BFLUID IV <br />
-                      This formulation of water, amino acids, electrolytes, vitamin B1, and carbohydrates is
-                      administered through the peripheral vein for patients with mild hypoproteinemia or mild
-                      malnutrition due to inadequate oral intake, and before and after surgery.</p>
-                  </div>
-                  <div class="col-6 relative">
-                    <button class="btn-transparent btn-video btn-bfluid"
-                      onclick="ShowVideo('https://player.vimeo.com/video/520341875?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
-                    </button>
-                    <iframe
-                      src="https://player.vimeo.com/video/520341875?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                      class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
-                      autoplay></iframe>
+            <div class="col-9" style="padding-left: 5%;">
+              <div class="row" style="height: 80vh;">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-4">
+                      <p>BFLUID IV <br />
+                        This formulation of water, amino acids, electrolytes, vitamin B1, and carbohydrates is
+                        administered through the peripheral vein for patients with mild hypoproteinemia or mild
+                        malnutrition due to inadequate oral intake, and before and after surgery.</p>
+                    </div>
+                    <div class="col-8 relative">
+                      <button class="btn-transparent btn-video btn-bfluid"
+                        onclick="ShowVideo('https://player.vimeo.com/video/520341875?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
+                      </button>
+                      <iframe
+                        src="https://player.vimeo.com/video/520341875?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen autoplay></iframe>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-6">
-                    <p>HINEX JELLY <br />
-                      Hinex Jelly Corn Flavor 300g pouch is a high protein low fat with fiber semi-solid nutrient
-                      which is a novel enteral nutrition for easy oral intake of patients requiring oral nutritional
-                      supplement.</p>
-                  </div>
-                  <div class="col-6 relative">
-                    <button class="btn-transparent btn-video btn-hinex"
-                      onclick="ShowVideo('https://player.vimeo.com/video/520341969?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
-                    </button>
-                    <iframe
-                      src="https://player.vimeo.com/video/520341969?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                      class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
-                      autoplay></iframe>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-4">
+                      <p>HINEX JELLY <br />
+                        Hinex Jelly Corn Flavor 300g pouch is a high protein low fat with fiber semi-solid nutrient
+                        which is a novel enteral nutrition for easy oral intake of patients requiring oral nutritional
+                        supplement.</p>
+                    </div>
+                    <div class="col-8 text-start relative">
+                      <button class="btn-transparent btn-video btn-hinex"
+                        onclick="ShowVideo('https://player.vimeo.com/video/520341969?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
+                      </button>
+                      <iframe
+                        src="https://player.vimeo.com/video/520341969?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen autoplay></iframe>
 
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-6">
-                    <p>Procateral Hydrochloride MEPTIN<br />
-                      A bronchdilator, Procaterol HCI (Meptin) is indicated for relief of dyspnea and other symptoms
-                      caused by respiratory obstructive disturbance in bronchial asthma, acute and chonic bronchitis,
-                      and pulmonary emphysema. </p>
-                  </div>
-                  <div class="col-6 relative">
-                    <button class="btn-transparent btn-video btn-meptin"
-                      onclick="ShowVideo('https://player.vimeo.com/video/520341587?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
-                    </button>
-                    <iframe
-                      src="https://player.vimeo.com/video/520341587?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                      class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
-                      autoplay></iframe>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-4">
+                      <p>Procateral Hydrochloride MEPTIN<br />
+                        A bronchdilator, Procaterol HCI (Meptin) is indicated for relief of dyspnea and other symptoms
+                        caused by respiratory obstructive disturbance in bronchial asthma, acute and chonic bronchitis,
+                        and pulmonary emphysema. </p>
+                    </div>
+                    <div class="col-8 relative">
+                      <button class="btn-transparent btn-video btn-meptin"
+                        onclick="ShowVideo('https://player.vimeo.com/video/520341587?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
+                      </button>
+                      <iframe
+                        src="https://player.vimeo.com/video/520341587?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen autoplay></iframe>
 
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="position: absolute; bottom: -20%; transform: translate(10%, -25%);">
-        <div class="row" style="width: 90vw; height: 20vh;">
-          <div class="col-12 text-end">
-            <button id="swipeRight" class="swipeRight" onclick="ScreenSwipe('Right')"></button>
-            <h2 style="color: white;">Swipe Right >></h2>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="sectionthree" class="screen animate__slower">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-start">
-            <p style="font-size: 1.3vw;">VIDEO</p>
-          </div>
-          <div class="col-6">
-            <div class="row" style="height: 80vh;">
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-6 relative">
-                    <button class="btn-transparent btn-video btn-mucosta"
-                      onclick="ShowVideo('https://player.vimeo.com/video/521911187?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
-                    </button>
-                    <iframe
-                      src="https://player.vimeo.com/video/521911187?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                      class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
-                      autoplay></iframe>
-
-                  </div>
-                  <div class="col-6">
-                    <p>REBAMIPIDE MUCOSTA <br />
-                      A cytoprotective agent, Rebamipide Mucosta acts against gastric mucosal lesions (erosions,
-                      bleeding, redness and edema) in diseases such as gastric ulcer, acute gastritis, and acute
-                      exacerbation of chronic gastritis. It has also been shown to be effective in prevention of
-                      NSAID-induced gastropathy.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-6 relative">
-                    <button class="btn-transparent btn-video btn-aminoleban"
-                      onclick="ShowVideo('https://player.vimeo.com/video/521910633?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
-                    </button>
-                    <iframe
-                      src="https://player.vimeo.com/video/521910633?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                      class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
-                      autoplay></iframe>
-
-                  </div>
-                  <div class="col-6">
-                    <p>AMINOLEBAN ORAL <br />
-                      An orange flavored dietary supplement, Amino Acids Aminoleban Oral contains high concentration
-                      of branched-chain amino acids, carbohydrates, fats, vitamins and minerals used to improve the
-                      nutritional state of patients with liver impairment including those with hepatic encephalopathy
-                      and patients with protein energy malnutrition.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-6 relative">
-                    <button class="btn-transparent btn-video btn-neomune"
-                      onclick="ShowVideo('https://player.vimeo.com/video/521911637?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
-                    </button>
-                    <iframe
-                      src="https://player.vimeo.com/video/521911637?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                      class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
-                      autoplay></iframe>
-
-                  </div>
-                  <div class="col-6">
-                    <p>NEO-MUNE
-                      Neo-mune Vanilla and Melon Flavor 400g can is a food for special medical purposes and a formula
-                      powder with glutamine, arganine and fish oil for the dietary management of critically ill
-                      patients who need high protein and high caloric dient management.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="row" style="height: 80vh;">
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-12">
-                    <a href="https://zoom.us/j/92970291312?pwd=MzZtWDA1Z3F1amZISFBnRTdSeWl6Zz09" class="letstalk"
-                      id="letstalk" target="_blank">
-                      <img class="btn-img" src="images/LetsTalk.png" />
-                    </a>
-                  </div>
-                  <div class="col-12">
-                    <p>Interact with one of the OTSUKA’s representative thru Zoom meeting. Click this button to enter
-                      the room.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-12">
-                    <a href="https://drive.google.com/file/d/1DFyvh_lyPewc613M8Nlrnk-QF-4MlYPk/view?usp=sharing"
-                      class="faq" id="faq" target="_blank">
-                      <img class="btn-img" src="images/FAQs.png" />
-                    </a>
-                  </div>
-                  <div class="col-12">
-                    <p>Frequently asked questions. Click here to read all the articles regarding FAQs.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-12">
-                    <a href="https://drive.google.com/file/d/1DFyvh_lyPewc613M8Nlrnk-QF-4MlYPk/view?usp=sharing"
-                      class="game" id="game" target="_blank">
-                      <img class="btn-img" src="images/Game.png" />
-                    </a>
-                  </div>
-                  <div class="col-12">
-                    <p>An ice-breaker interactive game brought to you by Otsuka. Click here to enter the game.</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div style="position: absolute; bottom: -20%; transform: translate(3%, -25%);">
-        <div class="row" style="width: 90vw; height: 20vh;">
-          <div class="col-12 text-start">
-            <button id="swipeLeft" class="swipeLeft" onclick="ScreenSwipe('Left')"></button>
-            <h2 style="color: white;">
-              << Swipe Left</h2>
+        <div style="position: absolute; bottom: -20%; transform: translate(10%, -25%);">
+          <div class="row" style="width: 90vw; height: 20vh;">
+            <div class="col-12 text-end">
+              <a onclick="ScreenSwipe('Right')">
+                <p style="color: white; font-size: 2vw;">Click to view Right >></p>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section id="sectionthree" class="screen animate__slower">
+        <div class="container-div">
+          <div class="row">
+            <div class="col-3"></div>
+            <div class="col-9 text-start" style="padding-left: 7%;">
+              <p style="font-size: 1.3vw;">VIDEO</p>
+            </div>
+            <div class="col-9" style="padding-right: 5%;">
+              <div class="row" style="height: 80vh;">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-8 relative text-end">
+                      <button class="btn-transparent btn-video btn-mucosta "
+                        onclick="ShowVideo('https://player.vimeo.com/video/521911187?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
+                      </button>
+                      <iframe
+                        src="https://player.vimeo.com/video/521911187?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen autoplay></iframe>
+
+                    </div>
+                    <div class="col-4">
+                      <p>REBAMIPIDE MUCOSTA <br />
+                        A cytoprotective agent, Rebamipide Mucosta acts against gastric mucosal lesions (erosions,
+                        bleeding, redness and edema) in diseases such as gastric ulcer, acute gastritis, and acute
+                        exacerbation of chronic gastritis. It has also been shown to be effective in prevention of
+                        NSAID-induced gastropathy.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-8 relative text-end">
+                      <button class="btn-transparent btn-video btn-aminoleban"
+                        onclick="ShowVideo('https://player.vimeo.com/video/521910633?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
+                      </button>
+                      <iframe
+                        src="https://player.vimeo.com/video/521910633?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen autoplay></iframe>
+
+                    </div>
+                    <div class="col-4">
+                      <p>AMINOLEBAN ORAL <br />
+                        An orange flavored dietary supplement, Amino Acids Aminoleban Oral contains high concentration
+                        of branched-chain amino acids, carbohydrates, fats, vitamins and minerals used to improve the
+                        nutritional state of patients with liver impairment including those with hepatic encephalopathy
+                        and patients with protein energy malnutrition.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-8 relative text-end">
+                      <button class="btn-transparent btn-video btn-neomune"
+                        onclick="ShowVideo('https://player.vimeo.com/video/521911637?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479')">
+                      </button>
+                      <iframe
+                        src="https://player.vimeo.com/video/521911637?autoplay=1&loop=1&autopause=0&muted=1&title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        class="video-img" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen autoplay></iframe>
+
+                    </div>
+                    <div class="col-4">
+                      <p>NEO-MUNE
+                        Neo-mune Vanilla and Melon Flavor 400g can is a food for special medical purposes and a formula
+                        powder with glutamine, arganine and fish oil for the dietary management of critically ill
+                        patients who need high protein and high caloric dient management.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="row" style="height: 80vh;">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-12">
+                      <a href="https://zoom.us/j/92970291312?pwd=MzZtWDA1Z3F1amZISFBnRTdSeWl6Zz09" class="letstalk"
+                        id="letstalk" target="_blank">
+                        <img class="btn-img" src="images/LetsTalk.png" />
+                      </a>
+                    </div>
+                    <div class="col-12">
+                      <p>Interact with one of the OTSUKA’s representative thru Zoom meeting.<br />Click this button to
+                        enter
+                        the room.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-12">
+                      <a href="https://drive.google.com/file/d/1DFyvh_lyPewc613M8Nlrnk-QF-4MlYPk/view?usp=sharing"
+                        class="faq" id="faq" target="_blank">
+                        <img class="btn-img" src="images/FAQs.png" />
+                      </a>
+                    </div>
+                    <div class="col-12">
+                      <p>Frequently asked questions.<br />Click here to read all the articles regarding FAQs.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-12">
+                      <a href="https://drive.google.com/file/d/1DFyvh_lyPewc613M8Nlrnk-QF-4MlYPk/view?usp=sharing"
+                        class="game" id="game" target="_blank">
+                        <img class="btn-img" src="images/Game.png" />
+                      </a>
+                    </div>
+                    <div class="col-12">
+                      <p>An ice-breaker interactive game brought to you by Otsuka.<br />Click here to enter the game.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="position: absolute; bottom: -20%; transform: translate(3%, -25%);">
+          <div class="row" style="width: 90vw; height: 20vh;">
+            <div class="col-12 text-start">
+              <a onclick="ScreenSwipe('Left')">
+                <p style="color: white; font-size: 2vw;">
+                  << Click to view Left</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="widescreen" style="height: 10vh; background-image: url('images/bgcolorleft.png');"></div>
   </div>
-  <div class="widescreen" style="height: 10vh; background-image: url('images/bgcolorleft.png');"></div>
-
 
   <!-- Modal -->
   <div class="modal fade" id="loginModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -634,6 +682,7 @@
 
   <script>
     var screen = 0, scroll_wheel = 0, go = 0, login = 0;
+    var bgm = document.getElementById("bgm");
 
     $(window).on("load", function () {
       $("#loginModal").modal("show");
@@ -833,10 +882,12 @@
     function ShowVideo(link) {
       $('#videoModal').modal('show');
       document.getElementById("iframe-video").src = link;
+      bgm.pause();
     }
 
     $("#close").click(function () {
       $("#iframe-video").attr("src", $("#iframe-video").attr("src"));
+      bgm.play();
     });
 
     $('#send_message').click(function () {
@@ -851,6 +902,39 @@
         },
         success: function (msg) {
           document.getElementById("message").value = "";
+          bgm.play();
+        }
+      });
+    });
+
+    function isPortrait() {
+      return window.innerHeight > window.innerWidth;
+    }
+
+
+    function isLandscape() {
+      return (window.orientation === 90 || window.orientation === -90);
+    }
+
+
+    if (isPortrait()) {
+      document.getElementById('portrait').style.display = "block";
+      document.getElementById('landscape').style.display = "none";
+    }
+    else if (isLandscape()) {
+      document.getElementById('portrait').style.display = "none";
+      document.getElementById('landscape').style.display = "block";
+    }
+
+    $(document).ready(function () {
+      $(window).on('orientationchange', function (event) {
+        if (window.matchMedia("(orientation: portrait)").matches) {
+          document.getElementById('portrait').style.display = "none";
+          document.getElementById('landscape').style.display = "block";
+        }
+        if (window.matchMedia("(orientation: landscape)").matches) {
+          document.getElementById('portrait').style.display = "block";
+          document.getElementById('landscape').style.display = "none";
         }
       });
     });
