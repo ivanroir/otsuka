@@ -201,16 +201,7 @@
   </div>
   <div class="wide-screen2" style="height: 10vh; background-color: #01122a"></div>
   
-  <script>
-     function getParameter(parameterName) {
-        let parameters = new URLSearchParams(window.location.search);
-        return parameters.get(parameterName);
-      }
-
-      var data = getParameter('name') + "\t" + getParameter('specialist') + "\t" + getParameter('clinic') + "\t" + getParameter('email');
-      gameInstance.SendMessage("First Time", "SendToUnity", data);
-      
-  </script>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
@@ -251,6 +242,14 @@
       }, 2000);
     }
   }
+
+  function getParameter(parameterName) {
+     let parameters = new URLSearchParams(window.location.search);
+     return parameters.get(parameterName);
+   }
+
+   var data = getParameter('name') + "\t" + getParameter('specialist') + "\t" + getParameter('clinic') + "\t" + getParameter('email');
+   gameInstance.SendMessage("First Time", "SendToUnity", data);
 
 </script>
 
