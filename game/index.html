@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+
+  <title>Otsuka</title>
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      background: #444;
+    }
+
+    #gameContainer {
+      width: 100vw;
+      height: 80vh;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* try to handle email dialog */
+    canvas+* {
+      z-index: 2;
+    }
+
+    label {
+      color: #fff;
+    }
+
+    .logo {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .progress {
+      margin: 1.5em;
+      border: 1px solid blue;
+      width: 50vw;
+      display: none;
+      position: absolute;
+      bottom: 50px;
+    }
+
+    .progress .full {
+      margin: 2px;
+      background: blue;
+      height: 1em;
+      transform-origin: top left;
+    }
+
+    #loader {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 100vw;
+      /*height: 80vh;*/
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .spinner,
+    .spinner:after {
+      border-radius: 50%;
+      width: 5em;
+      height: 5em;
+    }
+
+    .spinner {
+      margin: 10px;
+      font-size: 10px;
+      position: relative;
+      text-indent: -9999em;
+      border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+      border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+      border-left: 1.1em solid #ffffff;
+      transform: translateZ(0);
+      animation: spinner-spin 1.1s infinite linear;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 90%;
+      left: 50%;
+      font-size: 20px;
+
+      transform: translate(-50%, -50%);
+    }
+
+    .modal-dialog {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .modal-content-login {
+      height: auto;
+      min-height: 100%;
+      border-radius: 0;
+    }
+
+    button {
+      border: 0;
+      background: transparent;
+    }
+
+    @keyframes spinner-spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    label {
+      color: #011b3f;
+    }
+
+    .modal-header {
+      padding: 1vw 1vw;
+    }
+
+    .modal-header .btn-close {
+      padding: 1vw 1vw;
+      margin: -0.5rem -0.5rem -0.5rem auto;
+    }
+
+    .modal-body {
+      padding: 1vw;
+    }
+
+    .btn-close {
+      opacity: 1;
+    }
+
+    .responsive-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .send-message {
+      position: absolute;
+      top: 72%;
+      left: 61%;
+      z-index: 4;
+    }
+
+    .send-message-button {
+      width: 5vw;
+      height: 2vw;
+      background: rgba(0, 0, 0, 0);
+      opacity: 0;
+      z-index: 4;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wide-screen1" style="height: 10vh; background-color: #01122a"></div>
+  <div id="gameContainer"></div>
+  <div id="loader">
+    <img id="logo" class="logo" src="logo.png" />
+    <div class="spinner"></div>
+    <div class="progress">
+      <div class="full"></div>
+    </div>
+  </div>
+  <div class="wide-screen2" style="height: 10vh; background-color: #01122a"></div>
+  
+  <script>
+     function getParameter(parameterName) {
+        let parameters = new URLSearchParams(window.location.search);
+        return parameters.get(parameterName);
+      }
+
+      var data = getParameter('name') + "\t" + getParameter('specialist') + "\t" + getParameter('clinic') + "\t" + getParameter('email');
+      gameInstance.SendMessage("First Time", "SendToUnity", data);
+      
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
+</body>
+
+<script src="Build/UnityLoader.js"></script>
+<script>
+  var gameInstance = UnityLoader.instantiate(
+    "gameContainer",
+    "Build/Build.json",
+    { onProgress: UnityProgress }
+  );
+  function UnityProgress(gameInstance, progress) {
+    if (!gameInstance.Module) {
+      return;
+    }
+    const loader = document.querySelector("#loader");
+    const wideScreen1 = document.querySelector(".wide-screen1");
+    const wideScreen2 = document.querySelector(".wide-screen2");
+    const gameContainer = document.querySelector("#gameContainer");
+    if (!gameInstance.progress) {
+      const progress = document.querySelector("#loader .progress");
+      progress.style.display = "block";
+      gameInstance.progress = progress.querySelector(".full");
+      loader.querySelector(".spinner").style.display = "none";
+      wideScreen1.style.height = "0vh";
+      wideScreen2.style.height = "0vh";
+      gameContainer.style.height = "100vh";
+    }
+    gameInstance.progress.style.transform = `scaleX(${progress})`;
+    if (progress === 1 && !gameInstance.removeTimeout) {
+      gameInstance.removeTimeout = setTimeout(function () {
+        loader.style.display = "none";
+        wideScreen1.style.height = "10vh";
+        wideScreen2.style.height = "10vh";
+        gameContainer.style.height = "80vh";
+      }, 2000);
+    }
+  }
+
+</script>
+
+</html>

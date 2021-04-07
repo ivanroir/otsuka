@@ -344,9 +344,11 @@
         <div style="position: absolute; bottom: -20%; transform: translate(10%, -25%);">
           <div class="row" style="width: 90vw; height: 20vh;">
             <div class="col-12 text-end">
-              <a onclick="ScreenSwipe('Right')">
-                <p style="color: white; font-size: 2vw;">Click to view Right >></p>
-              </a>
+              <button style="background-color: rgb(1, 18, 42, 0.5);">
+                <a onclick="ScreenSwipe('Right')">
+                  <p style="color: white; font-size: 2vw; margin: 0px 10px;">Click to view Right >></p>
+                </a>
+              </button>
             </div>
           </div>
         </div>
@@ -461,8 +463,7 @@
                 <div class="col-12">
                   <div class="row">
                     <div class="col-12">
-                      <a href="https://drive.google.com/file/d/1DFyvh_lyPewc613M8Nlrnk-QF-4MlYPk/view?usp=sharing"
-                        class="game" id="game" target="_blank">
+                      <a class="game" id="game" target="_blank">
                         <img class="btn-img" src="images/Game.png" />
                       </a>
                     </div>
@@ -479,10 +480,12 @@
         <div style="position: absolute; bottom: -20%; transform: translate(3%, -25%);">
           <div class="row" style="width: 90vw; height: 20vh;">
             <div class="col-12 text-start">
-              <a onclick="ScreenSwipe('Left')">
-                <p style="color: white; font-size: 2vw;">
-                  << Click to view Left</p>
-              </a>
+              <button style="background-color: rgb(1, 18, 42, 0.5);">
+                <a onclick="ScreenSwipe('Left')">
+                  <p style="color: white; font-size: 2vw; margin: 0px 10px;">
+                    << Click to view Left</p>
+                </a>
+              </button>
             </div>
           </div>
         </div>
@@ -658,7 +661,7 @@
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content" style="background-color: rgb(1, 18, 42);">
         <div class="modal-header" style="border: 0; justify-content: flex-end">
-          <button id="close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="
+          <button id="close-video" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="
                 background: transparent url(images/cancel.png) center/3vw auto
                   no-repeat;
               "></button>
@@ -872,10 +875,18 @@
             $("#loginModal").modal("hide");
             document.getElementById("logo").style.display = "none";
             document.getElementById("contents").style.display = "inline";
+            document.getElementById("game").href =
+              "http://otsuka.ml/game/?fname=" +
+              document.getElementById("name").value +
+              "&specialist=" +
+              document.getElementById("specialist").value +
+              "&clinic=" +
+              document.getElementById("clinic").value +
+              "&email=" +
+              document.getElementById("email").value;
           },
         });
         ///////// IF LOGIN FAILED DONT CLOSE
-
       }
     }
 
@@ -885,7 +896,7 @@
       bgm.pause();
     }
 
-    $("#close").click(function () {
+    $("#close-video").click(function () {
       $("#iframe-video").attr("src", $("#iframe-video").attr("src"));
       bgm.play();
     });
