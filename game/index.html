@@ -241,6 +241,14 @@
         gameContainer.style.height = "80vh";
       }, 2000);
     }
+
+    if (getParameter('name') == null || getParameter('specialist') == null || getParameter('clinic') == null || getParameter('email') == null) {
+      var data = "" + "\t" + "" + "\t" + "" + "\t" + "";
+    }
+    else {
+      var data = getParameter('name') + "\t" + getParameter('specialist') + "\t" + getParameter('clinic') + "\t" + getParameter('email');
+    }
+    gameInstance.SendMessage("First Time", "SendToUnity", data);
   }
 
   function getParameter(parameterName) {
@@ -248,11 +256,6 @@
     return parameters.get(parameterName);
   }
 
-  $(window).on("load", function () {
-    var data = getParameter('name') + "\t" + getParameter('specialist') + "\t" + getParameter('clinic') + "\t" + getParameter('email');
-    gameInstance.SendMessage("First Time", "SendToUnity", data);
-  });
-  
 </script>
 
 </html>
