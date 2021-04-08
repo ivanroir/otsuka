@@ -760,6 +760,7 @@
     }
 
     function ScreenSwipe(event) {
+      bgm.play();
       if ((event == "Left" && scroll_wheel == 0) && login == 1) {
         scroll_wheel = 1;
         if (screen == 0) {
