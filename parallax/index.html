@@ -190,7 +190,7 @@
     Please Use Landscape
   </div>
   <div id="landscape" style="display: block;">
-    <div class="widescreen" style="height: 10vh; background-image: url('images/bgcolorleft.png');"></div>
+    <div class="widescreen" style="height: 10vh; background-color: rgba(4,4,58,1);"></div>
     <div id="logo" style="display: inline;">
       <img src="images/logo.png" style="width: 100vw; height: 80vh;" />
     </div>
@@ -491,7 +491,7 @@
         </div>
       </section>
     </div>
-    <div class="widescreen" style="height: 10vh; background-image: url('images/bgcolorleft.png');"></div>
+    <div class="widescreen" style="height: 10vh; background-color: rgba(4,4,58,1);"></div>
   </div>
 
   <!-- Modal -->
@@ -713,8 +713,8 @@
       go = 0;
       animateCSS('sectiontwo', 'slideInLeft');
       animateCSS('sectionone', 'slideOutRight');
-      document.getElementsByClassName('widescreen')[0].style.backgroundImage = "url('images/bgcolorleft.png')";
-      document.getElementsByClassName('widescreen')[1].style.backgroundImage = "url('images/bgcolorleft.png')";
+      //document.getElementsByClassName('widescreen')[0].style.backgroundImage = "url('images/bgcolorleft.png')";
+      //document.getElementsByClassName('widescreen')[1].style.backgroundImage = "url('images/bgcolorleft.png')";
       document.getElementById('sectiontwo').style.visibility = "visible";
       document.getElementById('sectiontwo').addEventListener('animationend', () => {
         scroll_wheel = 0;
@@ -738,8 +738,8 @@
       go = 0;
       animateCSS('sectionthree', 'slideInRight');
       animateCSS('sectionone', 'slideOutLeft');
-      document.getElementsByClassName('widescreen')[0].style.backgroundImage = "url('images/bgcolorright.png')";
-      document.getElementsByClassName('widescreen')[1].style.backgroundImage = "url('images/bgcolorright.png')";
+      //document.getElementsByClassName('widescreen')[0].style.backgroundImage = "url('images/bgcolorright.png')";
+      //document.getElementsByClassName('widescreen')[1].style.backgroundImage = "url('images/bgcolorright.png')";
       document.getElementById('sectionthree').style.visibility = "visible";
       document.getElementById('sectionthree').addEventListener('animationend', () => {
         scroll_wheel = 0;
@@ -898,6 +898,10 @@
     $("#close-video").click(function () {
       $("#iframe-video").attr("src", $("#iframe-video").attr("src"));
       bgm.play();
+    });
+
+    $("#game").click(function () {
+      bgm.pause();
     });
 
     $('#send_message').click(function () {
