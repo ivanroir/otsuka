@@ -242,11 +242,11 @@
       }, 2000);
     }
 
-    if (getParameter('name') == null || getParameter('specialist') == null || getParameter('clinic') == null || getParameter('email') == null) {
+    if (getParameter('fname') == null || getParameter('specialist') == null || getParameter('clinic') == null || getParameter('email') == null) {
       var data = "" + "\t" + "" + "\t" + "" + "\t" + "";
     }
     else {
-      var data = getParameter('name') + "\t" + getParameter('specialist') + "\t" + getParameter('clinic') + "\t" + getParameter('email');
+      var data = getParameter('fname') + "\t" + getParameter('specialist') + "\t" + getParameter('clinic') + "\t" + getParameter('email');
     }
     gameInstance.SendMessage("First Time", "SendToUnity", data);
   }
