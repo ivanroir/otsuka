@@ -787,6 +787,7 @@
       }
     }
     window.addEventListener('wheel', function (event) {
+      bgm.play();
       if ((event.deltaY < 0 && scroll_wheel == 0) && login == 1) {
         scroll_wheel = 1;
         if (screen == 0) {
