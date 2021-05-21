@@ -100,8 +100,15 @@ section {
   filter: brightness(0.8);
 }
 
-.booth {
+.booth-pc { 
+  left: -200px !important;
+ }
+
+ .booth-mobile { 
   left: -100px !important;
+ }
+
+.booth {
   top: -40px !important;
 }
 

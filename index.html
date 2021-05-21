@@ -200,7 +200,7 @@
           <div data-depth="0.1" class="bg">
             <img src="images/bg1.png" alt="" />
           </div>
-          <div data-depth="0.4" class="booth">
+          <div data-depth="0.4" id="booth" class="booth">
             <img src="images/booth.png" alt="" />
             <div class="gifmation">
               <!--<img src="images/middle.gif" alt="" class="gif " />-->
@@ -987,6 +987,36 @@
       });
     }
 
+
+    if (getMobileOperatingSystem() == "1"){
+      document.getElementById("booth").classList.add("booth-mobile");
+    } else if (getMobileOperatingSystem() == "0"){
+      document.getElementById("booth").classList.add("booth-pc");
+    }
+
+    function getMobileOperatingSystem() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+          // Windows Phone must come first because its UA also contains "Android"
+        if (/windows phone/i.test(userAgent)) {
+            //return "Windows Phone";
+            return "1";
+        }
+
+        if (/android/i.test(userAgent)) {
+            //return "Android";
+            return "1";
+        }
+
+        // iOS detection from: http://stackoverflow.com/a/9039885/177710
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            //return "iOS";
+            return "1";
+        }
+
+        //return "unknown";
+        return "0";
+    }
   </script>
 
 </body>
