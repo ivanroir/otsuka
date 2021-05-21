@@ -101,12 +101,12 @@ section {
 }
 
 .booth {
-  left: -90px !important;
+  left: -200px !important;
   top: -40px !important;
 }
 
 .booth img {
-  width: 110vw;
+  width: 120vw;
   height: 90vh;
   z-index: 2;
   left: -20px;
