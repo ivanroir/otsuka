@@ -949,9 +949,10 @@
           fname: document.getElementById("name").value,
           specialist: document.getElementById("specialist").value,
           email: document.getElementById("email").value,
-          message: document.getElementById("message").value,
+          message: document.getElementById("message").value
         },
         success: function (msg) {
+          alert("Message Sent");
           document.getElementById("message").value = "";
         }
       });
@@ -990,7 +991,7 @@
     });
 
     function UpdateActivity(field, url) {
-      var convention = "PSO";
+      var convention = "PSDE";
       $.ajax({
         url: url,
         type: 'POST',
